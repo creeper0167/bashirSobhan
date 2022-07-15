@@ -11,10 +11,13 @@ public class CamelRouter extends RouteBuilder{
 	public void configure() {
 		
 		//Producer
-		from("timer:producerTimer?period=50000")
+		from("timer:producerTimer?period=10000")
 		.bean(CamelController.class, "sendRandomNumber")
 		.log("producer timer trriger");
 		
 		//Consumer
+		from("timer:consumerTimer?period=60000")
+		.bean(CamelController.class,"showResult")
+		.log("Consumer trigger");
 	}
 }

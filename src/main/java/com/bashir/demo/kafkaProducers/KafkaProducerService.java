@@ -11,7 +11,7 @@ public class KafkaProducerService {
 	@Autowired
 	private KafkaTemplate<String, String> kafkaProducer;
 	private String message;
-	private String topic_name = "demo-topic";
+	private final String topic_name = "demo-topic";
 	
 	public void sendMessage(String message) {
 		this.message = message;
@@ -19,5 +19,9 @@ public class KafkaProducerService {
 		kafkaProducer.send(
 				new ProducerRecord<String, String>(topic_name, key_value , this.message)
 				);
+	}
+	
+	public String getTopicName() {
+		return this.topic_name;
 	}
 }
