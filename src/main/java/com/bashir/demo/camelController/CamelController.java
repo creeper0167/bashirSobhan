@@ -29,6 +29,5 @@ public class CamelController {
 	@KafkaListener(topics="demo-topic")
 	public void readM(@Payload String message) {
 		sum += Integer.parseInt(message);
-		System.out.println("the number was: "+ message);
 	}
 }
