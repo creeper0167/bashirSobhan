@@ -16,7 +16,6 @@ public class MyProcess implements Processor{
 	public void process(Exchange exchange) throws Exception{
 		int a = exchange.getIn().getBody(Integer.class);
 		n.add(a);
-		System.out.println("Hello " + n.getSum());
 		exchange.getIn().setBody(n.getSum());
 	}
 	

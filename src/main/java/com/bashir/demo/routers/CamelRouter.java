@@ -16,7 +16,7 @@ public class CamelRouter extends RouteBuilder{
 //		
 //		//Consumer
 		from("timer:Tim?period=60000").pollEnrich("kafka:demo-topic?brokers=localhost:9092&seekTo=beginning")
-		.process(new MyProcess()).log("body is: ${body}");
+		.process(new MyProcess()).log("sum till now is: ${body}");
 		
 		
 	}
