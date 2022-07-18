@@ -11,7 +11,7 @@ public class CamelRouter extends RouteBuilder{
 	public void configure() {
 		//Producer
 		from("timer:myTimer?period=10000").transform()
-			.simple("${random(1,101)}")
+			.simple("${random(0,101)}")
 			.to("kafka:demo-topic?brokers=localhost:9092");
 //		
 //		//Consumer
